@@ -2,7 +2,7 @@ load A.dat
 Af=norm(A, 'fro')^2;
 [n,d] = size(A);
 Af_ratio=Af*0.1
-trials=40;
+trials=30;
 k=1000;
 minus=ones(1,k)*Af_ratio;
 e=zeros(1,k);
@@ -13,7 +13,8 @@ for l=400:k
     for j=1:trials
         S=zeros(l,n);
         for i=1:l
-        S(i,:) = sqrt(n/l)*rand(1,n);
+            temp=rand(1,n);
+            S(i,:) = sqrt(n/l)*temp/norm(temp,2);
         end
         B=S*A;
         error=norm(A'*A - B'*B, 2);
