@@ -2,8 +2,8 @@ load A.dat
 Af=norm(A, 'fro')^2;
 Af_ratio=Af*0.1;
 
-%{
-for l=1:15
+
+for l=2:15
 B=FD(A,l);
 error=norm(A'*A - B'*B, 2);
     if error<Af_ratio
@@ -13,7 +13,7 @@ error=norm(A'*A - B'*B, 2);
         break
     end
 end
-%}
+
 
 %%
 [U,S,V] = svd(A);
@@ -25,7 +25,7 @@ V2 = V(:,1:k);
 A2 = U2*S2*V2';
 AF2=(norm(A-A2,'fro')^2)*0.1;
 
-for l=16:50
+for l=2:50
 B=FD(A,l);
 error=norm(A'*A - B'*B, 2);
     if error<AF2

@@ -6,8 +6,7 @@ k=2;
 U2 = U(:,1:k);
 S2 = S(1:k,1:k);
 V2 = V(:,1:k);
-P2 = A*V2;
-
-scatter(P2(:,1),P2(:,2));
-
-%sdia=diag(S2)
+A_2 = U2*S2;
+AT=A*V2;
+scatter(A_2(:,1),A_2(:,2));
+  
